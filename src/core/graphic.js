@@ -89,14 +89,6 @@ const PolylineGraphic = (function () {
         const label=this.labels.pop()
         this.viewer.entities.remove(label)
     }
-    _.prototype.createLabel = function () {
-        const length=this.getDistance()>10*1000?
-        '总长度'+(this.getDistance()/1000).toFixed(2)+'km':
-        '总长度'+this.getDistance().toFixed(2)+'m'
-        const label = labelStyle
-        label.text=length
-        return label
-    }
     _.prototype.getDistance = function () {
         let distance = 0;
         const positions = this.positions
