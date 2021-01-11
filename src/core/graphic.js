@@ -7,7 +7,7 @@
 const Cesium = window.Cesium
 const radiansPerDegree = Math.PI / 180.0;//角度转化为弧度(rad) 
 const degreesPerRadian = 180.0 / Math.PI;//弧度转化为角度
-const color=Cesium.Color.fromCssColorString('rgba(247,224,32,0.6)')
+const color=Cesium.Color.fromCssColorString('rgba(247, 29, 9, 0.6)')
 const pointStyle={
     pixelSize: 8,
     color:color
@@ -21,7 +21,7 @@ const labelStyle={
     scale:0.5,
     verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
     pixelOffset: new Cesium.Cartesian2(20, -20),
-    heightReference: Cesium.HeightReference.NONE
+    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
 }
 const PolylineGraphic = (function () {
     function _(viewer, options = {}) {
@@ -199,7 +199,8 @@ const HeightGraphic=(function(){
             polyline:{
                 positions:pts,
                 material:new Cesium.PolylineDashMaterialProperty({color:color}),
-                width:3
+                width:3,
+                followSurface: true,
             }
         })
 
